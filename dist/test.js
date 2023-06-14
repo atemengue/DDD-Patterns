@@ -1,0 +1,8 @@
+"use strict";
+/** @format */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.hello = void 0;
+function hello(name) {
+    return `Hello. ${name}`;
+}
+exports.hello = hello;
