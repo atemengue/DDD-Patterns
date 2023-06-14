@@ -1,14 +1,16 @@
 /** @format */
 
+import Address from './address';
+
 class Customer {
   _id: string;
   _name: string = '';
-  _address: string = '';
+  _address!: Address;
+  _active: boolean = false;
 
   constructor(id: string, name: string, address: string) {
     this._id = id;
     this._name = name;
-    this._address = address;
     this.validate();
   }
 
@@ -21,12 +23,14 @@ class Customer {
     }
   }
 
-  public get id(): string {
-    return this._id;
+  activate() {
+    if (this._address === undefined) {
+      throw new Error('Address is mandatory to activate a customer');
+    }
   }
 
-  public get address(): string {
-    return this._address;
+  public get id(): string {
+    return this._id;
   }
 
   public get name(): string {
@@ -40,7 +44,8 @@ class Customer {
   public set id(id: string) {
     this._id = id;
   }
-  public set address(address: string) {
+
+  set Address(address: Address) {
     this._address = address;
   }
 }
