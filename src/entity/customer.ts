@@ -23,6 +23,11 @@ export default class Customer {
     }
   }
 
+  changeName(name: string) {
+    this._name = name;
+    this.validate();
+  }
+
   activate() {
     if (this._address === undefined) {
       throw new Error('Address is mandatory to activate a customer');
